@@ -1,0 +1,230 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* outline: 1px solid red; */
+}
+.wrapper {
+  width: 1163px;
+  margin: 0 auto;
+  color: #555252;
+}
+/*HEADER*/
+.header {
+  padding: 10px;
+}
+.logo {
+  float: left;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  text-transform: uppercase;
+  padding: 10px;
+}
+h1::first-letter {
+  color: #1abc9c;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+}
+ul {
+  float: right;
+  list-style: none;
+}
+.nav_link {
+  float: left;
+  font-family: "Open Sans-Bold", sans-serif;
+  font-size: 14px;
+  padding: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+a:hover {
+  color: #1abc9c;
+}
+a {
+  text-decoration: none;
+  color: #000000;
+}
+/*SECTION PRODACT*/
+
+h2 {
+  text-align: center;
+  font-family: "Roboto-Black", sans-serif;
+  font-size: 48px;
+  line-height: 2;
+}
+
+.product_title {
+  margin-top: 111px;
+  margin-bottom: 92px;
+}
+.news_title {
+  margin-top: 105px;
+  margin-bottom: 75px;
+}
+h2:after {
+  content: "";
+  display: block;
+  width: 164px;
+  height: 7px;
+  background-color: #1abc9c;
+  margin: auto;
+}
+
+.product_list {
+  float: left;
+  width: 255px;
+  height: 322px;
+  background-color: #e9f0fd;
+  margin-bottom: 30px;
+}
+a {
+  display: block;
+}
+
+.product_discr {
+  width: 255px;
+}
+.product_img1 {
+  padding-right: 55px;
+}
+.product_img2 {
+  padding: 22px 43px 14px 36px;
+}
+.product_img3 {
+  padding: 71px 13px 53px;
+}
+.product_img4 {
+  padding: 48px 8px 30px 7px;
+}
+.product_img5 {
+  padding: 13px 25px 56px 32px;
+}
+.product_img6 {
+  padding: 51px 1px 51px 6px;
+}
+.product_img7 {
+  padding: 24px 27px 18px 32px;
+}
+.product_img8 {
+  padding: 97px 8px 87px 13px;
+}
+.product_list:not(:nth-child(4n + 4)) {
+  margin-right: 30px;
+}
+.product_name {
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  background-color: #323232;
+  color: #ffffff;
+  text-transform: uppercase;
+  float: left;
+  width: 201px;
+  padding: 13px 13px 14px;
+}
+.product_price {
+  width: 54px;
+  font-weight: 900;
+  color: #ffffff;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  background-color: #8c8c8c;
+  float: left;
+  margin-bottom: 30px;
+  padding: 13px 13px 14px;
+}
+
+.product_name:hover {
+  background-color: #1abc9c;
+}
+.product_price:hover {
+  background-color: #1abc9c;
+  opacity: 0.6;
+}
+
+/*news*/
+
+.news_item {
+  float: left;
+  width: 350px;
+  margin-bottom: 14px;
+}
+.news_item:not(:last-child) {
+  margin-right: 30px;
+}
+
+.subtitle1::before {
+  content: "";
+  display: inline-block;
+  width: 350px;
+  height: 262px;
+  background-image: url("../img/ipad-632394_960_720@1X.png");
+  background-position: center;
+}
+.subtitle2::before {
+  content: "";
+  display: inline-block;
+  width: 350px;
+  height: 262px;
+  background-image: url("../img/slide1@1X.png");
+  background-position: center;
+}
+.subtitle3::before {
+  content: "";
+  display: inline-block;
+  width: 350px;
+  height: 262px;
+  background-image: url("../img/product-img-5@1X.png");
+  background-position: center;
+}
+.subtitle1:after {
+  content: "";
+  display: block;
+  width: 136px;
+  height: 3px;
+  background-color: #1abc9c;
+}
+.subtitle2:after {
+  content: "";
+  display: block;
+  width: 136px;
+  height: 3px;
+  background-color: #1abc9c;
+}
+.subtitle3:after {
+  content: "";
+  display: block;
+  width: 136px;
+  height: 3px;
+  background-color: #1abc9c;
+}
+h3 {
+  width: 301px;
+  line-height: 1.5;
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+}
+p {
+  width: 335px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 23px;
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+button {
+  font-family: "Open Sans", sans-serif;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 300;
+  background-color: #4ec6ab;
+  padding: 19px 42px 18px 43px;
+  border-radius: 5px;
+}
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
