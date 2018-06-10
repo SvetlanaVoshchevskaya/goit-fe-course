@@ -26,7 +26,7 @@ h1::first-letter {
   font-family: "Roboto", sans-serif;
   font-weight: 900;
 }
-ul {
+.menu_list {
   float: right;
   list-style: none;
 }
@@ -38,7 +38,7 @@ ul {
   font-weight: 600;
   text-transform: uppercase;
 }
-a:hover {
+a:hover.link {
   color: #1abc9c;
 }
 a {
@@ -77,13 +77,13 @@ h2:after {
   height: 322px;
   background-color: #e9f0fd;
   margin-bottom: 30px;
+  list-style: none;
 }
-a {
-  display: block;
-}
-
 .product_discr {
   width: 255px;
+}
+img {
+  display: block;
 }
 .product_img1 {
   padding-right: 55px;
@@ -135,11 +135,11 @@ a {
   padding: 13px 13px 14px;
 }
 
-.product_name:hover {
+a:hover .product_name,
+a:hover .product_price {
   background-color: #1abc9c;
 }
-.product_price:hover {
-  background-color: #1abc9c;
+a:hover .product_price {
   opacity: 0.6;
 }
 
@@ -149,6 +149,7 @@ a {
   float: left;
   width: 350px;
   margin-bottom: 14px;
+  list-style: none;
 }
 .news_item:not(:last-child) {
   margin-right: 30px;
@@ -205,7 +206,7 @@ h3 {
   font-size: 18px;
   font-family: "Open Sans", sans-serif;
 }
-p {
+.text{
   width: 335px;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
@@ -222,6 +223,7 @@ button {
   background-color: #4ec6ab;
   padding: 19px 42px 18px 43px;
   border-radius: 5px;
+  border-color: transparent;
 }
 .clearfix::after {
   content: "";
