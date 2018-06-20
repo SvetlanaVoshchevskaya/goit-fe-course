@@ -1,0 +1,240 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* outline: 1px solid red; */
+}
+/* font-family: 'Roboto', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Kaushan Script', cursive; */
+
+.wrapper {
+  margin: auto;
+}
+.header {
+  padding: 10px;
+  margin-left: 50px;
+}
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main_nav {
+  display: flex;
+  text-decoration: none;
+  color: #95e1d3;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+}
+.nav_link {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+.nav_item {
+  padding: 20px;
+  text-transform: uppercase;
+}
+.logo {
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: #95e1d3;
+}
+.nav_item:hover {
+  color: #f48b8b;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/*TITLE*/
+
+.title_section {
+  text-align: center;
+}
+.first_line {
+  font-family: "Kaushan Script", cursive;
+  color: #333333;
+  margin-top: 80px;
+}
+.second_line {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #333333;
+  margin-bottom: 20px;
+  line-height: 2;
+}
+.second_line::after {
+  content: "";
+  display: block;
+  margin: auto;
+  background-color: #f38181;
+  width: 60px;
+  height: 3px;
+}
+/*SERVICE*/
+
+.main_service_item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.service_item {
+  display: flex;
+  width: 30%;
+}
+.service_item:not(:nth-last-child(-n + 3)) {
+  margin-bottom: 30px;
+}
+.service_block_info {
+  display: flex;
+  flex-direction: column;
+}
+.service_title {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 14px;
+  color: #c3c3c3;
+  margin-left: 10px;
+}
+.service_img {
+  width: 32px;
+  height: 32px;
+}
+.text {
+  font-family: "Roboto", sans-serif;
+  color: #c3c3c3;
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+/*OUR TEAM*/
+
+.team_text {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: #bdbdbd;
+  text-align: center;
+  width: 941px;
+  margin-left: 300px;
+  margin-bottom: 90px;
+}
+.team {
+  display: flex;
+  justify-content: space-around;
+}
+.team_info {
+  position: relative;
+}
+/* .team_link {position: absolute;
+} */
+
+.name_info {
+  text-align: center;
+  line-height: 2;
+}
+.name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.occupation {
+  font-family: "Roboto ", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 15px;
+  color: #bdbdbd;
+}
+.soc_batton {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* background-color: #fce38a;
+  opacity: 0; */
+}
+.soc_icon {
+  width: 56px;
+  height: 56px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #fce38a;
+  opacity: 0;
+}
+.facebook {
+  background-image: url(../img/icon/facebook@1X.png);
+}
+.twitter {
+  background-image: url(../img/icon/twitter@1X.png);
+}
+.pinterest {
+  background-image: url(../img/icon/pinterest@1X.png);
+}
+.instagram {
+  background-image: url(../img/icon/instagram@1X.png);
+}
+a:hover .facebook,
+.twitter,
+.pinterest,
+.instagram {
+  background-color: #95e1d3;
+}
+
+a:hover .soc_icon {
+  opacity: 1;
+}
+/* .team_info:hover {
+  background: linear-gradient(
+    rgba(239, 139, 138, 0.9),
+    rgba(237, 213, 135, 0.9)
+  );
+
+   translate: -10px, -10px;
+} */
+
+/* FOOTER*/
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  border-top: 1px solid #7a7a7a;
+}
+.footer_info {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  margin-top: 15px;
+}
+.info_name {
+  color: #f38181;
+}
+.button {
+  display: flex;
+}
+.e-mail {
+  font-family: "Roboto ", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  color: #bdbdbd;
+  font-size: 15px;
+  width: 220px;
+  border: 1px solid #c3c3c3;
+  text-align: left;
+  padding: 20px 20px 1px 3px;
+}
+.form_button {
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  background-color: #95e1d3;
+  padding: 20px 33px;
+  border: transparent;
+  font-size: 14px;
+}
