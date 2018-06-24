@@ -127,12 +127,14 @@ li {
   display: flex;
   justify-content: space-around;
 }
+
 .team_info {
   position: relative;
 }
-/* .team_link {position: absolute;
-} */
-
+.team_link {
+  display: flex;
+  flex-direction: column;
+}
 .name_info {
   text-align: center;
   line-height: 2;
@@ -149,16 +151,27 @@ li {
   font-size: 15px;
   color: #bdbdbd;
 }
+.button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 380px;
+  height: 470px;
+  background-color: transparent;
+  border-bottom: transparent;
+  border-right: transparent;
+  transition-property: background,border-right,border-bottom;
+  transition-duration: 0.2s;
+}
+
 .soc_batton {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin: auto;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* background-color: #fce38a;
-  opacity: 0; */
 }
 .soc_icon {
   width: 56px;
@@ -180,25 +193,33 @@ li {
 .instagram {
   background-image: url(../img/icon/instagram@1X.png);
 }
-a:hover .facebook,
-.twitter,
-.pinterest,
-.instagram {
-  background-color: #95e1d3;
-}
-
 a:hover .soc_icon {
   opacity: 1;
 }
-/* .team_info:hover {
+.button:hover {
   background: linear-gradient(
     rgba(239, 139, 138, 0.9),
     rgba(237, 213, 135, 0.9)
   );
-
-   translate: -10px, -10px;
-} */
-
+  transition-duration: 0.2s;
+  transform: translate(-10px, -10px);
+  border-right: 10px solid #95e1d3;
+  border-bottom: 10px solid #95e1d3;
+}
+.facebook:hover {
+  transition-property: background-color, 0.2ms linear;
+  background-color: #95e1d3;
+  transition-duration: 0.2s;
+}
+.twitter:hover {
+  background-color: #95e1d3;
+}
+.pinterest:hover {
+  background-color: #95e1d3;
+}
+.instagram:hover {
+  background-color: #95e1d3;
+}
 /* FOOTER*/
 
 .footer {
@@ -210,12 +231,12 @@ a:hover .soc_icon {
 .footer_info {
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 .info_name {
   color: #f38181;
 }
-.button {
+.footer_button   {
   display: flex;
 }
 .e-mail {
