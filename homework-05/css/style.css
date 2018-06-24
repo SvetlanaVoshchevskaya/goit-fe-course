@@ -5,7 +5,7 @@
   /* outline: 1px solid red; */
 }
 .wrapper {
-   margin: 0 auto;
+  margin: 0 auto;
 }
 
 .header {
@@ -113,7 +113,7 @@ a {
 }
 .collection {
   background-color: #e9f0fd;
- }
+}
 
 img {
   display: block;
@@ -219,17 +219,26 @@ img {
   transform: translate(-50%, -50%);
   position: absolute;
 }
-a:hover .like,
-.shuffle,
-.watch,
-.curt {
-  background-color: #2cc5a6;
+.like:hover {
+  background-color: #14947a;
   opacity: 1;
-  cursor: pointer;
 }
+.shuffle:hover {
+  background-color: #14947a;
+  opacity: 1;
+}
+.watch:hover {
+  background-color: #14947a;
+  opacity: 1;
+}
+.curt:hover {
+  background-color: #14947a;
+  opacity: 1;
+}
+
 .icon:hover {
   background-color: #000000;
-  opacity: 0.4;
+  opacity: 0.6;
 }
 a:hover .collection_name,
 a:hover .collection_price {
