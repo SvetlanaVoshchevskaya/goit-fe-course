@@ -151,6 +151,10 @@ li {
   font-size: 15px;
   color: #bdbdbd;
 }
+/* .img_info {
+  transition-property: border-right, border-bottom;
+  transition-duration: 0.2s;
+} */
 .button {
   position: absolute;
   top: 0;
@@ -160,7 +164,7 @@ li {
   background-color: transparent;
   border-bottom: transparent;
   border-right: transparent;
-  transition-property: background,border-right,border-bottom;
+  transition-property: background, border-right, border-bottom;
   transition-duration: 0.2s;
 }
 
@@ -196,6 +200,11 @@ li {
 a:hover .soc_icon {
   opacity: 1;
 }
+/* .img_info:hover {
+  transform: translate(-15px, -15px);
+  border-right: 10px solid #95e1d3;
+  border-bottom: 10px solid #95e1d3;
+} */
 .button:hover {
   background: linear-gradient(
     rgba(239, 139, 138, 0.9),
@@ -203,8 +212,7 @@ a:hover .soc_icon {
   );
   transition-duration: 0.2s;
   transform: translate(-10px, -10px);
-  border-right: 10px solid #95e1d3;
-  border-bottom: 10px solid #95e1d3;
+  box-shadow: 10px 10px 0px 0px #95e1d3;
 }
 .facebook:hover {
   transition-property: background-color, 0.2ms linear;
@@ -236,7 +244,7 @@ a:hover .soc_icon {
 .info_name {
   color: #f38181;
 }
-.footer_button   {
+.footer_button {
   display: flex;
 }
 .e-mail {
