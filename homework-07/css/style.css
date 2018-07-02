@@ -76,7 +76,10 @@
 }
 .wrapper {
   margin: 0 auto;
+  width: 1400px;
 }
+/* NAVIGATION*/
+
 .main_navigation {
   display: flex;
   justify-content: space-between;
@@ -108,6 +111,8 @@
 .nav_item:hover {
   color: #fed136;
 }
+/*SECTION SERVICE*/
+
 .service {
   margin-bottom: 50px;
 }
@@ -153,6 +158,8 @@ img {
 .service_img {
   padding: 10px;
 }
+/*SECTION CONTACTS*/
+
 .contacts {
   display: flex;
   flex-direction: column;
@@ -205,7 +212,6 @@ input {
 .fields input:focus {
   outline: 0;
 }
-
 input[type="text"]::placeholder {
   text-transform: uppercase;
   font-family: "Montserrat", serif;
@@ -227,7 +233,6 @@ textarea::placeholder {
 .section_color {
   color: #ffffff;
 }
-
 input:valid {
   border-color:  #277314;
 }
@@ -247,7 +252,7 @@ textarea {
   padding-left: 10px;
 }
 .send_button {
-  width: 15%;
+  width: 20%;
   border: transparent;
   border-radius: 3px;
   color: #ffffff;
