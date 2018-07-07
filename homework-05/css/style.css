@@ -2,14 +2,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* outline: 1px solid red; */
 }
 .wrapper {
   margin: 0 auto;
+  width: 1600px;
 }
-
 .header {
   padding: 10px;
+  width: 1200px;
+  margin: 0 auto;
 }
 .logo {
   float: left;
@@ -44,57 +45,65 @@ a {
   color: #000000;
 }
 /* info */
-
-.info_title {
-  font-size: 60px;
-  text-align: left;
-  color: #ffffff;
-  font-family: "Roboto", sans-serif;
-  letter-spacing: -1px;
-  line-height: 82px;
-}
-.main_info {
-  padding: 210px 120px 200px 120px;
-  margin: 0px 125px 0px 270px;
-}
 .info {
   background-image: url(../img/slide4@1X.png);
   background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
 }
+.main_info {
+  padding-bottom: 600px;
+  margin: 0 auto;
+  width: 1170px;
+}
 .info_title {
-  position: relative;
+  font-size: 60px;
+  text-align: center;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: -2px;
+  line-height: 82px;
+  position: absolute;
+  left: 25%;
+  top: 40%;
 }
 .information {
   font-family: "Roboto", sans-serif;
   color: #ffffff;
   font-size: 24px;
-  text-align: left;
+  text-align: center;
+  position: absolute;
+  left: 25%;
+  top: 55%;
 }
 .left {
   position: absolute;
-  left: 15%;
   top: 40%;
 }
 .right {
   position: absolute;
-  right: 20%;
+  left: 75%;
   top: 40%;
 }
 .button {
   width: 104px;
   height: 104px;
   font-size: 40px;
-  background-color: #4f9e8b;
+  background-color: #1abc9c;
   color: #ffffff;
   padding: 20px 41px;
   border: transparent;
   background-position: center;
   cursor: pointer;
 }
+button:hover {
+  opacity: 0.7;
+}
 
 /* .collection */
-
+img {
+  display: block;
+}
 .product_title {
   text-align: center;
   font-family: "Roboto-Black", sans-serif;
@@ -111,12 +120,12 @@ a {
   background-color: #1abc9c;
   margin: auto;
 }
-.collection {
+.new_collection {
   background-color: #e9f0fd;
 }
-
-img {
-  display: block;
+.collection {
+  width: 1170px;
+  margin: 0 auto;
 }
 .collection_list {
   float: left;
@@ -134,9 +143,6 @@ img {
 .collection_img {
   width: 257px;
   height: 293px;
-}
-.collect_discr {
-  width: 255px;
 }
 .collection_name {
   font-size: 18px;
@@ -160,18 +166,15 @@ img {
   margin-bottom: 30px;
   padding: 13px 13px 14px;
 }
-
 .icon {
-  width: 255px;
-  height: 295px;
+  width: 245px;
+  height: 280px;
   color: #ffffff;
   padding: 15px 15px 15px 15px;
   position: absolute;
-  border: 2px solid #ffffff;
   opacity: 0;
-  background-color: transparent;
-  top: 0px;
-  left: 0px;
+  top: 5px;
+  left: 5px;
 }
 .like {
   background-image: url(../img/like.png);
@@ -182,7 +185,8 @@ img {
   height: 45px;
   margin: 10px;
   position: absolute;
-}
+  border: 2px solid #ffffff;
+ }
 .shuffle {
   background-image: url(../img/shuffle.png);
   background-size: contain;
@@ -192,6 +196,7 @@ img {
   top: 25%;
   margin: 10px;
   position: absolute;
+  border: 2px solid #ffffff;
 }
 .watch {
   background-image: url(../img/time.png);
@@ -202,15 +207,17 @@ img {
   height: 45px;
   margin: 10px;
   position: absolute;
+  border: 2px solid #ffffff;
 }
 .curt {
   background-image: url(../img/shopping-cart.png);
   background-size: contain;
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
+  font-weight: 600;
   text-transform: uppercase;
   width: 166px;
-  height: 50px;
+  height: 45px;
   background-repeat: no-repeat;
   margin: 9px;
   text-align: right;
@@ -218,27 +225,31 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
+  border: 2px solid #ffffff;
 }
 .like:hover {
-  background-color: #14947a;
+  background-color: #1abc9c;
   opacity: 1;
+  border: transparent;
 }
 .shuffle:hover {
-  background-color: #14947a;
+  background-color: #1abc9c;
   opacity: 1;
+  border: transparent;
 }
 .watch:hover {
-  background-color: #14947a;
+  background-color: #1abc9c;
   opacity: 1;
+  border: transparent;
 }
 .curt:hover {
-  background-color: #14947a;
+  background-color: #1abc9c;
   opacity: 1;
+  border: transparent;
 }
-
 .icon:hover {
   background-color: #000000;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 a:hover .collection_name,
 a:hover .collection_price {
@@ -247,7 +258,9 @@ a:hover .collection_price {
 a:hover .collection_price {
   opacity: 0.6;
 }
-.site_info {
+/*FOOTER*/
+
+.footer {
   font-family: "Open Sans", sans-serif;
   color: #ffffff;
   font-size: 16px;
