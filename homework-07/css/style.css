@@ -79,7 +79,10 @@
   width: 1400px;
 }
 /* NAVIGATION*/
-
+.container {
+  width: 75%;
+  margin: 0 auto;
+}
 .main_navigation {
   display: flex;
   justify-content: space-between;
@@ -118,6 +121,7 @@
 }
 .title_section {
   padding: 40px 0px 40px 0px;
+  text-align: center;
 }
 .main_title {
   font-family: "Montserrat", "Roboto Slab", sans-serif;
@@ -125,6 +129,7 @@
   text-transform: uppercase;
   text-align: center;
   font-size: 40px;
+  margin-bottom: 10px;
 }
 .subtitle {
   font-family: "Roboto Slab", sans-serif;
@@ -133,6 +138,7 @@
   font-style: italic;
   font-weight: 400;
   color: #898989;
+ 
 }
 .service_info {
   display: flex;
@@ -142,6 +148,7 @@
 .information {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 28%;
 }
@@ -234,9 +241,9 @@ textarea::placeholder {
   color: #ffffff;
 }
 input:valid {
-  border-color:  #277314;
+  border-color: #277314;
 }
-input:invalid{
+input:invalid {
   border-color: #de0909;
 }
 textarea {
@@ -252,7 +259,7 @@ textarea {
   padding-left: 10px;
 }
 .send_button {
-  width: 20%;
+  width: 25%;
   border: transparent;
   border-radius: 3px;
   color: #ffffff;
