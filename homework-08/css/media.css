@@ -3,6 +3,7 @@
     .container {
       min-width: 768px;
     }
+    .advert {min-height: 700px;}
     .link_menu {
       display: flex;
       justify-content: space-around;
