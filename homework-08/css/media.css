@@ -19,6 +19,7 @@
   }
   .advert_button {
     padding: 12px 25px 12px 25px;
+   
   }
 
   .partner_list {
@@ -30,6 +31,7 @@
   }
   .partner_button {
     padding: 12px 25px 12px 25px;
+ 
   }
 }
 @media (min-width: 1440px) { .container {
