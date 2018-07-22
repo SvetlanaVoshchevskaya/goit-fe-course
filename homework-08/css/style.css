@@ -25,7 +25,7 @@
   background-image: url(../img/VectorSmartObject@1X.png);
   min-height: 542px;
   background-size: cover;
-  background-color: #a8a2a2;
+  background-color: #524e4e;
   background-position: center;
   margin-bottom: 68px;
 }
@@ -70,7 +70,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-}
+  }
 .advert_title {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
