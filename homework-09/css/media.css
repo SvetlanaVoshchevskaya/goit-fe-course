@@ -1,0 +1,44 @@
+@media (min-width: 768px) {
+  .background {
+    min-height: 700px;
+  }
+  .link_menu {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    margin-bottom: 75px;
+      }
+  
+  .advert_title {
+    max-width: 578px;
+    margin: 0 auto;
+    font-size: 50px;
+    margin-bottom: 40px;
+  }
+  .advert_subtitle {
+    font-size: 24px;
+    margin-bottom: 34px;
+  }
+  .advert_button {
+    padding: 12px 25px 12px 25px;
+    margin-bottom: 20px;
+  }
+  .partner_card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    }
+  .partner_button {
+    padding: 12px 25px 12px 25px;
+    margin-bottom: 20px;
+  }
+  }
+ 
+@media (min-width: 992px) {
+  .advert_subtitle {
+    margin-bottom: 49px;
+  }
+  .partner_card {margin-bottom: 40px;}
+}
