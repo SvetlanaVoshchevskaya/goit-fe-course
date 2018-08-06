@@ -29,6 +29,7 @@
   background-position: center;
   margin-bottom: 68px;
 }
+.header {margin-bottom: 135px;}
 .link_menu {
   display: flex;
   flex-direction: column-reverse;
