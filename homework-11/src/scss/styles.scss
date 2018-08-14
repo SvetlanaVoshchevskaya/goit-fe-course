@@ -1,0 +1,334 @@
+/*
+   Import partials below
+*/
+@import "main";
+
+.promo {
+  min-height: 949px;
+  background-position: center;
+  background-image: $bg-gradient, url(/img/layer15@1x.png);
+  background-blend-mode: normal;
+  opacity: 1;
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    background-image: $bg-gradient, url(/img/layer15@2x.png);
+  }
+
+  &__header {
+    @extend %width;
+    padding: 10px;
+    margin-left: 50px;
+    margin: auto;
+  }
+
+  &__inform {
+    width: 810px;
+    min-height: 600px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  &__inform-title {
+    color: $color-title;
+    text-align: center;
+    margin-bottom: 42px;
+    @include font("Kaushan Script", 300, 72px);
+  }
+
+  &__inform-subtitle {
+    text-transform: uppercase;
+    @include font("Montserrat", 700, 150px);
+    color: $color-title;
+    text-align: center;
+    letter-spacing: -8px;
+    margin: 0 0 142px 0;
+  }
+
+  &__inform-button {
+    color: $color-title;
+    @include font("Montserrat", 300, 14px);
+    background-color: transparent;
+    padding: 15px 32px;
+    text-transform: uppercase;
+    border: 3px solid #ffffff;
+    position: absolute;
+    bottom: 0;
+    right: 40%;
+  }
+
+  &__icon {
+    padding: 10px;
+    fill: $color-title;
+  }
+}
+
+.header {
+  margin: auto;
+
+  &__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__navigation-logo {
+    text-decoration: none;
+    @include font("Montserrat", 700, 30px);
+    color: $color-title;
+  }
+
+  &__navigation-link {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__navigation-main {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    @include font("Montserrat", 300, 14px);
+  }
+
+  &__navigation-item {
+    padding: 20px;
+    text-transform: uppercase;
+    list-style: none;
+    color: $color-title;
+
+    &:hover {
+      color: $link-color-hover;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+  }
+}
+
+.section-service {
+  @extend %width;
+
+  &__title_section {
+    @extend %text;
+  }
+
+  &__first_line {
+    @include font("Kaushan Script", 300, 24px);
+    margin-top: 80px;
+  }
+
+  &__second_line {
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    line-height: 2;
+    @include font("Montserrat", 700, 30px);
+
+    &::after {
+      content: "";
+      display: block;
+      margin: auto;
+      background-color: $bg-color;
+      width: 60px;
+      height: 3px;
+    }
+  }
+
+  &__info-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__item {
+    display: flex;
+    width: 30%;
+
+    &:not(:nth-last-child(-n + 3)) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__img {
+    width: 32px;
+    height: 32px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  &__title {
+    @include font("Montserrat", 300, 14px);
+    text-transform: uppercase;
+    padding-left: 20px;
+    color: $clr;
+  }
+
+  &__text {
+    @include font("Roboto", 300, 15px);
+    color: $main-text-color;
+    text-transform: none;
+    padding-top: 10px;
+  }
+}
+
+.section-team {
+  @extend %width;
+
+  &__title-section {
+    @extend %text;
+  }
+
+  &__first-line {
+    @include font("Kaushan Script", 300, 24px);
+    color: $card-main-color;
+    margin-top: 80px;
+  }
+
+  &__second-line {
+    @include font("Montserrat", 700, 30px);
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    line-height: 2;
+
+    &::after {
+      content: "";
+      display: block;
+      margin: auto;
+      background-color: #f38181;
+      width: 60px;
+      height: 3px;
+    }
+  }
+
+  &__text {
+    color: $main-text-color;
+    @include font("Roboto", 300, 15px);
+    text-align: center;
+    width: 941px;
+    margin: auto;
+    margin-bottom: 50px;
+  }
+
+  &__card {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__info {
+    position: relative;
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__but-coll {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 380px;
+    height: 470px;
+    background-color: transparent;
+    border-bottom: transparent;
+    border-right: transparent;
+    transition-property: background, border-right, border-bottom;
+    transition-duration: 0.2s;
+
+    &:hover {
+      background: $bg-gradient;
+      transition-duration: 0.2s;
+      transform: translate(-10px, -10px);
+      box-shadow: 10px 10px 0px 0px #95e1d3;
+    }
+  }
+
+  &__name_info {
+    text-align: center;
+    line-height: 2;
+  }
+
+  &__name {
+    text-transform: uppercase;
+    @include font("Montserrat", 300, 14px);
+  }
+
+  &__occupation {
+    @include font("Roboto ", 300, 15px);
+    font-style: italic;
+    color: $main-text-color;
+  }
+
+  &__soc_batton {
+    width: 224px;
+    min-height: 22px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $link-color-hover;
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__team_icon {
+    opacity: 0;
+    border: transparent;
+    padding: 20px 13px;
+    fill: #f38181;
+
+    &:hover {
+      opacity: 1;
+      transition-property: background-color, 0.2ms linear;
+      fill: $color-title;
+      transition-duration: 0.2s;
+      background-color: #95e1d3;
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  border-top: 1px solid #7a7a7a;
+
+  &__info {
+    margin-top: 20px;
+    @include font("Montserrat", 300, 14px);
+  }
+
+  &__info-name {
+    color: $bg-color;
+  }
+
+  &__button {
+    display: flex;
+  }
+
+  &__e-mail {
+    @include font("Roboto ", 300, 15px);
+    font-style: italic;
+    color: $main-text-color;
+    width: 220px;
+    border: 1px solid #c3c3c3;
+    text-align: left;
+    padding: 20px 20px 1px 3px;
+  }
+
+  &__form-button {
+    color: $color-title;
+    @include font("Montserrat", 600, 14px);
+    background-color: #95e1d3;
+    padding: 20px 33px;
+    border: transparent;
+  }
+}

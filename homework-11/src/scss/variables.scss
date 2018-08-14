@@ -1,0 +1,26 @@
+$main-title-color: #333333;
+$main-text-color: #c3c3c3;
+$bg-color: #f38181;
+$clr: #000000; 
+$link-color-hover: #fce38a;
+$color-title: #ffffff;
+$card-main-color: #333333;
+$bg-gradient: linear-gradient(
+  rgba(239, 139, 138, 0.9),
+  rgba(237, 213, 135, 0.9)
+);
+
+@mixin font($ffamily, $fweight, $fsize) {
+  font-family: $ffamily;
+  font-weight: $fweight;
+  font-size: $fsize;
+}
+
+%width {
+  max-width: 1218px;
+  margin: auto;
+}
+
+%text {
+  text-align: center;
+}
