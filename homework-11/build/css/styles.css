@@ -489,6 +489,10 @@ template {
   fill: #ffffff;
 }
 
+.promo__icon:hover {
+  fill: #fce38a;
+}
+
 .header {
   margin: auto;
 }
@@ -677,26 +681,6 @@ template {
   box-shadow: 10px 10px 0px 0px #95e1d3;
 }
 
-.section-team__name_info {
-  text-align: center;
-  line-height: 2;
-}
-
-.section-team__name {
-  text-transform: uppercase;
-  font-family: "Montserrat";
-  font-weight: 300;
-  font-size: 14px;
-}
-
-.section-team__occupation {
-  font-family: "Roboto ";
-  font-weight: 300;
-  font-size: 15px;
-  font-style: italic;
-  color: #c3c3c3;
-}
-
 .section-team__soc_batton {
   width: 224px;
   min-height: 22px;
@@ -717,7 +701,6 @@ template {
 }
 
 .section-team__team_icon {
-  opacity: 0;
   border: transparent;
   padding: 20px 13px;
   fill: #f38181;
@@ -729,6 +712,26 @@ template {
   fill: #ffffff;
   transition-duration: 0.2s;
   background-color: #95e1d3;
+}
+
+.section-team__name_info {
+  text-align: center;
+  line-height: 2;
+}
+
+.section-team__name {
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.section-team__occupation {
+  font-family: "Roboto ";
+  font-weight: 300;
+  font-size: 15px;
+  font-style: italic;
+  color: #c3c3c3;
 }
 
 .footer {

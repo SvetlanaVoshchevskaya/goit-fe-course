@@ -58,6 +58,10 @@
   &__icon {
     padding: 10px;
     fill: $color-title;
+
+    &:hover {
+      fill: $link-color-hover;
+    }
   }
 }
 
@@ -244,23 +248,7 @@
       box-shadow: 10px 10px 0px 0px #95e1d3;
     }
   }
-
-  &__name_info {
-    text-align: center;
-    line-height: 2;
-  }
-
-  &__name {
-    text-transform: uppercase;
-    @include font("Montserrat", 300, 14px);
-  }
-
-  &__occupation {
-    @include font("Roboto ", 300, 15px);
-    font-style: italic;
-    color: $main-text-color;
-  }
-
+ 
   &__soc_batton {
     width: 224px;
     min-height: 22px;
@@ -280,7 +268,7 @@
   }
 
   &__team_icon {
-    opacity: 0;
+    // opacity: 0;
     border: transparent;
     padding: 20px 13px;
     fill: #f38181;
@@ -292,6 +280,22 @@
       transition-duration: 0.2s;
       background-color: #95e1d3;
     }
+  }
+  
+  &__name_info {
+    text-align: center;
+    line-height: 2;
+  }
+
+  &__name {
+    text-transform: uppercase;
+    @include font("Montserrat", 300, 14px);
+  }
+
+  &__occupation {
+    @include font("Roboto ", 300, 15px);
+    font-style: italic;
+    color: $main-text-color;
   }
 }
 
