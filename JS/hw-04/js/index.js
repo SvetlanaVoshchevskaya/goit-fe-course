@@ -47,17 +47,17 @@ function Cashier(name, productDatabase) {
   };
 }
 
-const mango = new Cashier('Mango', products);
-const totalPrice = mango.countTotalPrice(order);
+// const mango = new Cashier('Mango', products);
+// const totalPrice = mango.countTotalPrice(order);
 
-console.log(mango.name); // Mango
-console.log(mango.productDatabase); // ссылка на базу данных продуктов (объект products)
-console.log(mango.customerMoney); // 0
-console.log(totalPrice); // 110
-mango.getCustomerMoney(300);
-console.log(mango.customerMoney); // 300
-const change = mango.countChange(totalPrice);
-console.log(change); // 190
-mango.onSuccess(change);
-mango.reset();
-console.log(mango.customerMoney); // 0
+// console.log(mango.name); // Mango
+// console.log(mango.productDatabase); // ссылка на базу данных продуктов (объект products)
+// console.log(mango.customerMoney); // 0
+// console.log(totalPrice); // 110
+// mango.getCustomerMoney(300);
+// console.log(mango.customerMoney); // 300
+// const change = mango.countChange(totalPrice);
+// console.log(change); // 190
+// mango.onSuccess(change);
+// mango.reset();
+// console.log(mango.customerMoney); // 0
