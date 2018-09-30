@@ -120,8 +120,7 @@ const getTotalBalance = arr => arr.reduce((acc, el) => acc + el.balance, 0);
 console.log(getTotalBalance(users));
 
 const getUsersByFriend = (arr, name) =>
-  arr.filter(el => el.friends.includes(name))  
-.map(el => el.name);
+  arr.filter(el => el.friends.includes(name)).map(el => el.name);
 
 console.log(getUsersByFriend(users, 'Briana Decker'));
 console.log(getUsersByFriend(users, 'Goldie Gentry'));
@@ -130,8 +129,6 @@ const getAllSkills = arr =>
   arr
     .reduce((acc, el) => (el.skills ? acc.concat(el.skills) : acc), [])
     .sort((a, b) => (a > b ? 1 : -1))
-    // .filter (el =>
+    .filter((el, idx, arr) => arr.indexOf(el) === idx);
 
 console.log(getAllSkills(users));
-
-
