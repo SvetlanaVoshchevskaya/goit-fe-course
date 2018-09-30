@@ -49,7 +49,6 @@ function Cashier(name, productDatabase) {
 
 // const mango = new Cashier('Mango', products);
 // const totalPrice = mango.countTotalPrice(order);
-
 // console.log(mango.name); // Mango
 // console.log(mango.productDatabase); // ссылка на базу данных продуктов (объект products)
 // console.log(mango.customerMoney); // 0
