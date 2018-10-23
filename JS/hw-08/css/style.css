@@ -1,0 +1,25 @@
+.image-gallery {
+  margin: 0 auto;
+  min-width: 1600px;
+}
+.fullview {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.preview {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  flex-wrap: wrap;
+}
+.img-list {
+  max-height: 213px;
+  cursor: pointer;
+}
+.js-list-item {
+  padding-bottom: 10px;
+}
+.js-list-item:hover {
+  box-shadow: 0 0 20px rgba(25, 25, 112, 0.8);
+}
