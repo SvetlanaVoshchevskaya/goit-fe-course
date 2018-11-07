@@ -5,7 +5,7 @@ const timeClock = document.querySelector('.js-time');
 const btnReset = document.querySelector('.js-reset');
 const btnlap = document.querySelector('.js-take-lap');
 const ul = document.querySelector('.js-laps');
-const nowTime = Date.now();
+
 const arr = [];
 
 const timer = {
@@ -23,22 +23,16 @@ const timer = {
         let currentTime = Date.now();
         this.deltaTime = currentTime - this.startTime + this.pauseTime;
         upDate(this.deltaTime);
-        console.log('start');
-        console.log(this.deltaTime);
       }, 100);
 
       if (this.isActive === true) {
         pause(this.pauseTime);
         this.pauseTime = this.deltaTime;
-        console.log('pause');
-        console.log(this.pauseTime);
         this.isActive = true;
       }
     } else {
       this.startTime = this.deltaTime + Date.now();
       onContinue(this.deltaTime);
-      console.log('continue');
-      console.log(this.deltaTime);
       clearInterval(this.id);
       this.isActive = false;
     }
@@ -49,16 +43,17 @@ const timer = {
     this.startTime = null;
     this.id = null;
     this.pauseTime = null;
-    upDate(this.startTime);
+    this.deltaTime = null;
+    upDate(this.deltaTime);
+    onStart(this.deltaTime);
   },
   onLap() {
     arr.push(this.deltaTime);
     onArr();
-    console.log(arr);
   }
 };
 
-let time = nowTime - timer.startTime;
+let time = timer.startTime;
 
 function getFormattedTime(time) {
   const setMin = Math.floor((time / 1000 / 60) % 60);
@@ -77,6 +72,9 @@ function pause() {
 function onContinue() {
   btnStart.textContent = 'Continue..';
 }
+function onStart() {
+  btnStart.textContent = 'Start';
+}
 function onArr() {
   const li = document.createElement('li');
   for (let el of arr) {
@@ -86,7 +84,7 @@ function onArr() {
 }
 btnStart.addEventListener(
   'click',
-  timer.startClock.bind(timer, upDateClock, pause, onContinue)
+  timer.startClock.bind(timer, upDateClock, pause, onContinue, onStart)
 );
 btnReset.addEventListener('click', timer.resetClock.bind(timer, upDateClock));
 btnlap.addEventListener('click', timer.onLap.bind(timer, onArr));
