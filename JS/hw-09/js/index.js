@@ -78,7 +78,8 @@ function onStart() {
 function onArr() {
   const li = document.createElement('li');
   for (let el of arr) {
-    li.textContent = el;
+    let list = getFormattedTime(el);
+    li.textContent = list;
     ul.append(li);
   }
 }
