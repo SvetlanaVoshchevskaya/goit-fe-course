@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>hw-10</title>
+  </head>
+  <body>
+    <div class="container ">
+      <button class="btnGetAll">Get all User</button>
+
+      <form class="box">
+        <input type="text" class="input" value="" placeholder="id" />
+        <button class="btnGet">GET</button>
+      </form>
+
+      <form class="add_box">
+        <input type="text" class="inputs" value="" placeholder="name" />
+        <input type="text" class="inputs" value="" placeholder="age" />
+        <button class="btnAdd">Add user</button>
+      </form>
+
+      <form class="delete_box">
+        <input type="text" class="input_del" value="" placeholder="id" />
+        <button class="btnDel">Delete</button>
+      </form>
+
+      <form class="change_box">
+        <input type="text" class="input_id" value="" placeholder="id" />
+        <input type="text" class="input_name" value="" placeholder="name" />
+        <input type="text" class="input_age" value="" placeholder="age" />
+        <button class="btnPut">Update</button>
+      </form>
+    </div>
+    <table class="information">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+        </tr>
+      </thead>
+      <tbody class="table"></tbody>
+    </table>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>
