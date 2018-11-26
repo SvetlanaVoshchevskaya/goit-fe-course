@@ -15,9 +15,7 @@ function createView(arr) {
   const result = arr.reduce(
     (acc, el) =>
       acc +
-      `<tr> <td>${el.id}</td> <td>${el.name}</td><td>${
-        el.age
-      }</td> </tr>`,
+      `<tr> <td>${el.id}</td> <td>${el.name}</td><td>${el.age}</td> </tr>`,
     ''
   );
   div.innerHTML = result;
@@ -30,7 +28,10 @@ function showUser({ id, name, age }) {
 
 function getAllUser() {
   fetch('https://test-users-api.herokuapp.com/users')
-    .then(respons => respons.json())
+  .then(resp => {
+    if (resp.ok) return resp.json();
+    throw new Error(`${resp.statusText}`);
+  })
     .then(data => createView(data.data))
     .catch(err => console.log(err));
 }
@@ -42,13 +43,18 @@ function getUserById() {
   let id = input.value;
   input.value = '';
   fetch(`https://test-users-api.herokuapp.com/users/${id}`)
-    .then(resp => resp.json())
+    .then(resp => {
+      if (resp.ok) return resp.json();
+      throw new Error(`${resp.statusText}`);
+    })
     .then(data => showUser(data.data))
     .catch(err => console.log(err));
 }
 
 function showInform({ name, age }) {
-  const data = alert(`Пользователь с именем ${name}и возрастом${age}добавлен`);
+  const data = alert(
+    `Пользователь с именем ${name} и возрастом ${age} добавлен`
+  );
   return data;
 }
 function showDelete({ id }) {
@@ -68,7 +74,10 @@ function addUser() {
     body: JSON.stringify({ name, age }),
     headers: { Accept: 'application/json', 'Content-Type': 'application/json' }
   })
-    .then(resp => resp.json())
+  .then(resp => {
+    if (resp.ok) return resp.json();
+    throw new Error(`${resp.statusText}`);
+  })
     .then(data => showInform(data.data))
     .catch(err => console.log(err));
 }
@@ -83,7 +92,10 @@ function removeUser() {
   fetch(` https://test-users-api.herokuapp.com/users/${id}`, {
     method: 'DELETE'
   })
-    .then(resp => resp.json())
+  .then(resp => {
+    if (resp.ok) return resp.json();
+    throw new Error(`${resp.statusText}`);
+  })
     .then(data => showDelete(data.data))
     .catch(err => console.log(err));
 }
@@ -106,7 +118,10 @@ function updateUser() {
     body: JSON.stringify(user),
     headers: { Accept: 'application/json', 'Content-type': 'application/json' }
   })
-    .then(resp => resp.json())
+  .then(resp => {
+    if (resp.ok) return resp.json();
+    throw new Error(`${resp.statusText}`);
+  })
     .then(data => showUser(data.data))
     .catch(err => console.log(err));
 }
