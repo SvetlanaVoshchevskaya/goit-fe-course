@@ -1,27 +1,4 @@
 'use strict';
-/*
-  Реализуйте форму фильтра товаров в каталоге и список отфильтрованных товаров.
-  Используйте шаблонизацию для создания карточек товаров.
-  
-  Есть массив объектов (дальше в задании), каждый из которых описывает 
-  ноутбук с определенными характеристиками.
-  
-  Поля объекта по которым необходимо производить фильтрацию: size, color, release_date.
-  Поля объекта для отображения в карточке: name, img, descr, color, price, release_date.
-    
-  Изначально есть форма с 3-мя секциями, состоящими из заголовка и группы 
-  чекбоксов (разметка дальше в задании). После того как пользователь выбрал 
-  какие либо чекбоксы и нажал кнопку Filter, необходимо собрать значения чекбоксов по группам. 
-  
-  🔔 Подсказка: составьте объект формата
-      const filter = { size: [], color: [], release_date: [] }
-    
-  После чего выберите из массива только те объекты, которые подходят 
-  под выбраные пользователем критерии и отрендерите список карточек товаров.
-  
-  🔔 Каждый раз когда пользователь фильтрует товары, список карточек товаров очищается, 
-      после чего в нем рендерятся новые карточки товаров, соответствующих текущим критериям фильтра.
-*/
 
 const laptops = [
   {
@@ -117,22 +94,47 @@ const laptops = [
 ];
 
 const form = document.querySelector('.js-form');
+const section = document.querySelectorAll('section');
+let filter = { size: [], color: [], release_date: [] };
 
-function getCheck() {
+const getCheck = function() {
   event.preventDefault();
-  const input = document.querySelectorAll('input:checked');
-  const check = Array.from(input).map(el => el.value);
-  console.log(check);
+  const input = Array.from(
+    document.querySelectorAll('[type="checkbox"]:checked')
+  );
+  for (let el of input) {
+    filter[el.name].push(el.value);
+  }
+  return filter;
+};
 
-  return check;
+function filterGallery(obj, arr) {
+  const result = arr.filter(el => {
+    if (
+      obj.size.includes(String(el.size)) ||
+      obj.color.includes(String(el.color)) ||
+      obj.release_date.includes(String(el.release_date))
+    ) {
+      return el;
+    }
+  });
+
+  console.log(result);
+  return result;
 }
 
-form.addEventListener('submit', getCheck);
+function render(obj) {
+  const gallery = document.querySelector('#item').innerHTML.trim();
+  const list = document.querySelector('.gallery-list');
+  const templ = Handlebars.compile(gallery);
+  const markup = templ({ obj });
+  list.insertAdjacentHTML('afterbegin', markup);
+}
 
-const filter = { size: [], color: [], release_date: [] };
+function paintGallery() {
+  event.preventDefault();
+  let newArr = filterGallery(getCheck(), laptops);
+  render(newArr);
+}
 
-const gallery = document.querySelector('#item').innerHTML.trim();
-const list = document.querySelector('.gallery-list');
-const templ = Handlebars.compile(gallery);
-const markup = templ({ laptops });
-list.insertAdjacentHTML('afterbegin', markup);
+form.addEventListener('submit', paintGallery);
