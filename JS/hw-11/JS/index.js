@@ -109,19 +109,22 @@ const getCheck = function() {
 };
 
 function filterGallery(obj, arr) {
-  const result = arr.filter(el => {
-    if (
-      obj.size.includes(String(el.size)) ||
-      obj.color.includes(String(el.color)) ||
-      obj.release_date.includes(String(el.release_date))
-    ) {
-      return el;
+  event.preventDefault();
+  let result = Object.keys(filter).reduce((acc, item) => {
+    if (obj[item].length !== 0) {
+      return arr.filter(el => obj[item].includes(String(el[item])));
+    } else {
+      obj[item].filter(el => {
+        {
+          return obj[item].includes(String(el[item]));
+        }
+      });
     }
-  });
-
-  console.log(result);
+    return acc;
+  }, []);
   return result;
 }
+
 
 function render(obj) {
   const gallery = document.querySelector('#item').innerHTML.trim();
