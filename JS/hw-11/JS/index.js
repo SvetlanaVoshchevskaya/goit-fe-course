@@ -117,7 +117,6 @@ function filterGallery(obj, arr) {
       obj[item].filter(el => {
         {
           return obj[item].includes(String(el[item]));
-        }
       });
     }
     return acc;
