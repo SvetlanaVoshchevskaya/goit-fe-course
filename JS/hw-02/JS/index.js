@@ -5,14 +5,14 @@ let total = 0;
 
 do {
   userInput = prompt('Введите число');
-  let numberUserInp  = Number(userInput);
-  if (numberUserInp !== null && numberUserInp  !== isNaN) {
-    numbers.push(numberUserInp);
-    
+  if (userInput !== null && userInput !== isNaN) {
+    numbers.push(+userInput);
   }
 } while (userInput !== null);
 
-for (let value  of numbers) {
+for (let value of numbers) {
   total += value;
 }
-alert(`Общая сумма чисел равна ${total}`);
+if (numbers.length !== 0) {
+  alert(`Общая сумма чисел равна ${total}`);
+}
