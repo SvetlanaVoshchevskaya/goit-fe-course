@@ -1,36 +1,29 @@
 'use strict';
 
 const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
+const success = 'Логин успешно добавлен!';
+const errorMessage = 'Ошибка! Логин должен быть от 4 до 16 символов';
+const usedLogin = 'Такой логин уже используется!';
 
-const login=prompt('Enter login');
+const isLoginValid = login => login.length >= 4 && login.length <= 16;
 
-const isLoginValid = function(login){
-  return login.length >= 4 && login.length <= 16;
-};
-
-const isLoginUnique = function(allLogins, login) {
-
-  return !allLogins.includes(login);
-};
+const isLoginUnique = (allLogins, login) => allLogins.includes(login);
 
 const addLogin = function(logins, login) {
-    if (isLoginValid(login)) {
+  if (isLoginValid(login)) {
     if (isLoginUnique(logins, login)) {
-      alert('Логин успешно добавлен!');
-      logins.push(login);
-      return logins;
+      alert(usedLogin);
     } else {
-      alert('Такой логин уже используется!');
-      return logins;
+      alert(success);
+      logins.push(login);
     }
   } else {
-    alert('Ошибка! Логин должен быть от 4 до 16 символов');
-    return logins;
+    alert(errorMessage);
   }
 };
 
- addLogin (logins,login);
-//  addLogin( logins,'robotGoogles')
+// addLogin(logins, 'Ajax');
+// addLogin(logins, 'robotGoogles');
 // addLogin( logins,'Zod');
 // addLogin(logins,'jqueryisextremelyfast')
 console.log(logins);
