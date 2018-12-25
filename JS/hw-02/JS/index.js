@@ -12,11 +12,10 @@ do {
   }
 } while (userInput !== null);
 
-for (let value of numbers) {
-  total += value;
-}
-
-if (numbers.length !== 0) {
+if (numbers.length > 0) {
+  for (let value of numbers) {
+    total += value;
+  }
   alert(`Общая сумма чисел равна ${total}`);
 }
 
