@@ -93,38 +93,44 @@ const users = [
   }
 ];
 
-const getAllNames = userArray => userArray.map(item => item.name);
+const getAllNames = userArray => userArray.map(user => user.name);
 console.log(getAllNames(users));
 
-const getUsersByEyeColor = (userArray, color) =>userArray.filter(item => color === item.eyeColor);
+const getUsersByEyeColor = (userArray, color) =>userArray.filter(user => color === user.eyeColor);
 console.log(getUsersByEyeColor(users, 'blue'));
 
-const getUsersByGender = (userArray, gender) => userArray.filter(item => item.gender === gender).map(item => item.name);
+const getUsersByGender = (userArray, gender) => 
+userArray
+.filter(user => user.gender === gender)
+.map(user => user.name);
 console.log(getUsersByGender(users, 'male'));
 
-const getInactiveUsers = userArray =>userArray.filter(item => !item.isActive);
+const getInactiveUsers = userArray =>userArray.filter(user => !user.isActive);
 console.log(getInactiveUsers(users));
 
-const getUserByEmail = (userArray, email) =>userArray.find(item => email === item.email);
+const getUserByEmail = (userArray, email) =>userArray.find(user => email === user.email);
 console.log(getUserByEmail(users, 'shereeanthony@kog.com'));
 console.log(getUserByEmail(users, 'elmahead@omatom.com'));
 
-const getUsersWithAge = (userArray, min, max) =>userArray.filter(item=> item.age >= min && item.age <= max);
+const getUsersWithAge = (userArray, min, max) =>userArray.filter(user=> user.age >= min && user.age <= max);
 console.log(getUsersWithAge(users, 20, 30));
 console.log(getUsersWithAge(users, 30, 40));
 
-const getTotalBalance = userArray => userArray.reduce((acc, item) => acc + item.balance, 0);
+const getTotalBalance = userArray => userArray.reduce((acc, user) => acc + user.balance, 0);
 console.log(getTotalBalance(users));
 
-const getUsersByFriend = (userArray, name) =>userArray.filter(item => item.friends.includes(name)).map(item => item.name);
+const getUsersByFriend = (userArray, name) =>
+userArray
+.filter(user => user.friends.includes(name))
+.map(user => user.name);
 
 console.log(getUsersByFriend(users, 'Briana Decker'));
 console.log(getUsersByFriend(users, 'Goldie Gentry'));
 
 const getAllSkills = userArray =>
 userArray
-    .reduce((acc, item) => (item.skills ? acc.concat(item.skills) : acc), [])
+    .reduce((acc, user) => (user.skills ? acc.concat(user.skills) : acc), [])
     .sort((a, b) => (a > b ? 1 : -1))
-    .filter((item, idx, arr) => arr.indexOf(item) === idx);
+    .filter((user, idx, arr) => arr.indexOf(user) === idx);
 
 console.log(getAllSkills(users));
