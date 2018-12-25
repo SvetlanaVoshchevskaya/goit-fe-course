@@ -1,32 +1,29 @@
 'use strict';
 
 
-const posts = [
-  {
+const posts = [{
     img: 'https://placeimg.com/400/150/arch',
     title: 'Post title 1',
-    text:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, nemo dignissimos ea temporibus voluptatem maiores maxime consequatur impedit nobis sunt similique voluptas accusamus consequuntur, qui modi nesciunt veritatis distinctio rem!',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, nemo dignissimos ea temporibus voluptatem maiores maxime consequatur impedit nobis sunt similique voluptas accusamus consequuntur, qui modi nesciunt veritatis distinctio rem!',
     link: 'link-1.com'
   },
   {
     img: 'https://placeimg.com/400/150/nature',
     title: 'Post title 2',
-    text:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, nemo dignissimos ea temporibus voluptatem maiores maxime consequatur impedit nobis sunt similique voluptas accusamus consequuntur, qui modi nesciunt veritatis distinctio rem!',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, nemo dignissimos ea temporibus voluptatem maiores maxime consequatur impedit nobis sunt similique voluptas accusamus consequuntur, qui modi nesciunt veritatis distinctio rem!',
     link: 'link-2.com'
   },
   {
     img: 'https://placeimg.com/400/150/arch',
     title: 'Post title 3',
-    text:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, nemo dignissimos ea temporibus voluptatem maiores maxime consequatur impedit nobis sunt similique voluptas accusamus consequuntur, qui modi nesciunt veritatis distinctio rem!',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, nemo dignissimos ea temporibus voluptatem maiores maxime consequatur impedit nobis sunt similique voluptas accusamus consequuntur, qui modi nesciunt veritatis distinctio rem!',
     link: 'link-3.com'
   }
 ];
 
 const root = document.querySelector('.root');
-function createPostCard({ img, title, text, link }) {
+
+function createPostCard({img,title,text,link}) {
   const post = document.createElement('div');
   const imgEl = document.createElement('img');
   const h2 = document.createElement('h2');
@@ -49,8 +46,9 @@ function createPostCard({ img, title, text, link }) {
 }
 
 function createCards(posts) {
-  return posts.reduce((acc, el) => acc.concat(createPostCard(el)), []);
- }
+  return posts.map(post => createPostCard(post));
+}
 
-const element = createCards(posts);
-root.append(...element);
+
+const allPost = createCards(posts);
+root.append(...allPost);
