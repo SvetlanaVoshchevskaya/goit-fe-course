@@ -63,9 +63,17 @@ gallery.append(...fullGallery);
 gallery.addEventListener('click', clickImg);
 
 function clickImg() {
-  const name = event.target.nodeName;
-  if (name !== 'IMG') return;
+  const name = event.target;
+  if (name.nodeName !== 'IMG') return;
+  addClass(name);
   let srcImg = event.target.dataset.fullview;
   let newImg = document.querySelector('.fullview');
   newImg.src = srcImg;
+}
+function addClass(image) {
+  const currentImg = ul.querySelector('img.active');
+  if (currentImg) {
+    currentImg.classList.remove('active');
+  }
+  image.classList.add('active');
 }
