@@ -46,6 +46,7 @@ const timer = {
     this.deltaTime = null;
     upDate(this.deltaTime);
     onStart(this.deltaTime);
+    ul.innerHTML = '';
   },
   onLap() {
     arr.push(this.deltaTime);
@@ -63,18 +64,23 @@ function getFormattedTime(time) {
   const setMillisec = Math.floor((time / 100) % 10);
   return `${Min}:${Sec}.${setMillisec}`;
 }
+
 function upDateClock(time) {
   timeClock.textContent = getFormattedTime(time);
 }
+
 function pause() {
   btnStart.textContent = 'Pause';
 }
+
 function onContinue() {
   btnStart.textContent = 'Continue..';
 }
+
 function onStart() {
   btnStart.textContent = 'Start';
 }
+
 function onArr() {
   const li = document.createElement('li');
   for (let el of arr) {
@@ -83,9 +89,6 @@ function onArr() {
     ul.append(li);
   }
 }
-btnStart.addEventListener(
-  'click',
-  timer.startClock.bind(timer, upDateClock, pause, onContinue, onStart)
-);
+btnStart.addEventListener('click', timer.startClock.bind(timer, upDateClock, pause, onContinue, onStart));
 btnReset.addEventListener('click', timer.resetClock.bind(timer, upDateClock));
 btnlap.addEventListener('click', timer.onLap.bind(timer, onArr));
