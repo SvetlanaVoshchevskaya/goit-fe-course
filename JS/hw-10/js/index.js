@@ -13,14 +13,18 @@ const div = document.querySelector('table>tbody');
 function createView(arr) {
   const result = arr.reduce(
     (acc, el) =>
-      acc +
-      `<tr> <td>${el.id}</td> <td>${el.name}</td><td>${el.age}</td> </tr>`,
+    acc +
+    `<tr> <td>${el.id}</td> <td>${el.name}</td><td>${el.age}</td> </tr>`,
     ''
   );
   div.innerHTML = result;
 }
 
-function showUser({ id, name, age }) {
+function showUser({
+  id,
+  name,
+  age
+}) {
   const data = `<tr> <td>${id}</td> <td>${name}</td> <td>${age}</td> </tr>`;
 
   div.innerHTML = data;
@@ -51,17 +55,26 @@ function getUserById() {
     .catch(err => alert(`${err}`));
 }
 
-function showInform({ name, age }) {
+function showInform({
+  name,
+  age
+}) {
   const data = alert(
     `Пользователь с именем ${name} и возрастом ${age} добавлен`
   );
   return data;
 }
-function showUpdate({ id }) {
+
+function showUpdate({
+  id
+}) {
   const data = alert(`Пользователь с ID ${id} изменен`);
   return data;
 }
-function showDelete({ id }) {
+
+function showDelete({
+  id
+}) {
   const data = alert(`Пользователь с ID ${id} удален`);
 
   return data;
@@ -76,16 +89,18 @@ function addUser() {
   formAdd.reset();
   if (age < '0' || age > '9') {
     alert('Введите цифры в поле age');
-  } else;
-  {
+  } else; {
     fetch(' https://test-users-api.herokuapp.com/users/', {
-      method: 'POST',
-      body: JSON.stringify({ name, age }),
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      }
-    })
+        method: 'POST',
+        body: JSON.stringify({
+          name,
+          age
+        }),
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
       .then(resp => {
         if (resp.ok) return resp.json();
         throw new Error(`${resp.statusText}`);
@@ -106,8 +121,8 @@ function removeUser() {
   let id = input.value;
   input.value = '';
   fetch(` https://test-users-api.herokuapp.com/users/${id}`, {
-    method: 'DELETE'
-  })
+      method: 'DELETE'
+    })
     .then(resp => {
       if (resp.ok) return resp.json();
       throw new Error(`${resp.statusText}`);
@@ -132,13 +147,19 @@ function updateUser() {
   if (age < '0' || age > '9') {
     alert('Введите цифры в поле age');
   }
-  const user = { name, age };
+  const user = {
+    name,
+    age
+  };
   formChange.reset();
   fetch(` https://test-users-api.herokuapp.com/users/${id}`, {
-    method: 'PUT',
-    body: JSON.stringify(user),
-    headers: { Accept: 'application/json', 'Content-type': 'application/json' }
-  })
+      method: 'PUT',
+      body: JSON.stringify(user),
+      headers: {
+        Accept: 'application/json',
+        'Content-type': 'application/json'
+      }
+    })
     .then(resp => {
       if (resp.ok) return resp.json();
       throw new Error(`${resp.statusText}`);
