@@ -9,7 +9,7 @@ const add = document.querySelector('.btnAdd');
 const post = document.querySelector('.btnPost');
 const del = document.querySelector('.btnDel');
 const div = document.querySelector('table>tbody');
-const addform = document.q;
+// const addform = document.q;
 
 function createView(arr) {
   const result = arr.reduce(
@@ -23,6 +23,7 @@ function createView(arr) {
 
 function showUser({ id, name, age }) {
   const data = `<tr> <td>${id}</td> <td>${name}</td> <td>${age}</td> </tr>`;
+
   div.innerHTML = data;
 }
 
@@ -57,8 +58,13 @@ function showInform({ name, age }) {
   );
   return data;
 }
+function showUpdate({ id }) {
+  const data = alert(`Пользователь с ID ${id} изменен`);
+  return data;
+}
 function showDelete({ id }) {
-  const data = alert(`Пользователь с именем ${id} удален`);
+  const data = alert(`Пользователь с ID ${id} удален`);
+
   return data;
 }
 get.addEventListener('click', getUserById);
@@ -67,7 +73,6 @@ function addUser() {
   event.preventDefault();
   const input = document.querySelectorAll('.inputs');
   const val = Array.from(input).map(el => el.value);
-  // const agePlace = document.querySelector('[placeholder="age"].value');
   const [name, age] = val;
   formAdd.reset();
   if (age < '0' || age > '9') {
@@ -105,7 +110,10 @@ function removeUser() {
       if (resp.ok) return resp.json();
       throw new Error(`${resp.statusText}`);
     })
-    .then(data => showDelete(data.data))
+    .then(data => {
+      showDelete(data.data);
+      getAllUser();
+    })
     .catch(err => alert(`${err}`));
 }
 
@@ -133,7 +141,11 @@ function updateUser() {
       if (resp.ok) return resp.json();
       throw new Error(`${resp.statusText}`);
     })
-    .then(data => showUser(data.data))
+
+    .then(data => {
+      showUser(data.data);
+      showUpdate(data.data);
+    })
     .catch(err => alert(`${err}`));
 }
 
