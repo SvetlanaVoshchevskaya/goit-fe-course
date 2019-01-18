@@ -10,7 +10,6 @@ const post = document.querySelector('.btnPost');
 const del = document.querySelector('.btnDel');
 const div = document.querySelector('table>tbody');
 
-
 function createView(arr) {
   const result = arr.reduce(
     (acc, el) =>
@@ -91,7 +90,10 @@ function addUser() {
         if (resp.ok) return resp.json();
         throw new Error(`${resp.statusText}`);
       })
-      .then(data => {showInform(data.data); getAllUser();})
+      .then(data => {
+        showInform(data.data);
+        getAllUser();
+      })
       .catch(err => alert(`${err}`));
   }
 }
