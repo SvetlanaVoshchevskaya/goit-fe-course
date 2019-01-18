@@ -36,29 +36,30 @@ const alt = galleryItems[0].alt;
 bigImg.classList.add('fullview');
 bigImg.setAttribute('src', fullviews);
 bigImg.setAttribute('alt', alt);
-fullView.append(bigImg);
 gallery.append(bigImg);
 
 const ul = document.createElement('ul');
-function createImg({ preview, alt, fullview }) {
-  const li = document.createElement('li');
-  const imgEl = document.createElement('img');
-  ul.classList.add('preview');
-  imgEl.classList.add('img-list');
-  li.classList.add('js-list-item');
-  imgEl.setAttribute('src', preview);
-  imgEl.setAttribute('data-fullview', fullview);
-  imgEl.setAttribute('alt', alt);
-  ul.append(li);
-  li.append(imgEl);
-  gallery.append(ul);
+
+function createImg(array) {
+  array.map(item => {
+    const li = document.createElement('li');
+    const imgEl = document.createElement('img');
+    ul.classList.add('preview');
+    imgEl.classList.add('img-list');
+    li.classList.add('js-list-item');
+    imgEl.setAttribute('src', item.preview);
+    imgEl.setAttribute('data-fullview', item.fullview);
+    imgEl.setAttribute('alt', item.alt);
+    li.append(imgEl);
+    ul.append(li);
+    return li;
+  });
   return ul;
 }
-function createGallery(galleryItems) {
-  return galleryItems.reduce((acc, el) => acc.concat(createImg(el)), []);
-}
-const fullGallery = createGallery(galleryItems);
-gallery.append(...fullGallery);
+gallery.append(ul);
+
+const fullGallery = createImg(galleryItems);
+gallery.append(fullGallery);
 
 gallery.addEventListener('click', clickImg);
 
@@ -68,7 +69,7 @@ function clickImg() {
   addClass(name);
   let srcImg = event.target.dataset.fullview;
   let newImg = document.querySelector('.fullview');
-  newImg.src = srcImg;
+(newImg.src = srcImg);
 }
 function addClass(image) {
   const currentImg = ul.querySelector('img.active');

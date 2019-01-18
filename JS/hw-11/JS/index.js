@@ -105,6 +105,7 @@ const getCheck = function() {
   for (let el of input) {
     filter[el.name].push(el.value);
   }
+
   return filter;
 };
 
@@ -115,8 +116,7 @@ function filterGallery(obj, arr) {
       return arr.filter(el => obj[item].includes(String(el[item])));
     } else {
       obj[item].filter(el => {
-        {
-          return obj[item].includes(String(el[item]));
+        return obj[item].includes(String(el[item]));
       });
     }
     return acc;
@@ -124,13 +124,13 @@ function filterGallery(obj, arr) {
   return result;
 }
 
-
 function render(obj) {
   const gallery = document.querySelector('#item').innerHTML.trim();
   const list = document.querySelector('.gallery-list');
   const templ = Handlebars.compile(gallery);
   const markup = templ({ obj });
-  list.insertAdjacentHTML('afterbegin', markup);
+  list.innerHTML += markup;
+  console.log(obj);
 }
 
 function paintGallery() {
@@ -139,4 +139,8 @@ function paintGallery() {
   render(newArr);
 }
 
-form.addEventListener('submit', paintGallery);
+document.addEventListener('submit', paintGallery);
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   render(laptops);
+// });
