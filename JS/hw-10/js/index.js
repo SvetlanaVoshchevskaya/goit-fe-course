@@ -16,7 +16,6 @@ function fetchData(url,method='GET',body,headers={ Accept: 'application/json',
    return fetch (url,{method,body,headers})
    }
 
-
 function createView(arr) {
   const result = arr.reduce(
     (acc, el) =>
@@ -94,8 +93,7 @@ function addUser() {
       })
       .then(data => {
         showInform(data.data);
-        getAllUser();
-      })
+             })
       .catch(err => alert(`${err}`));
   }
 }
@@ -114,8 +112,7 @@ function removeUser() {
     })
     .then(data => {
       showDelete(data.data);
-      getAllUser();
-    })
+        })
     .catch(err => alert(`${err}`));
 }
 
