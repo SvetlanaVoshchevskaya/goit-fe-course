@@ -1,14 +1,12 @@
 'use strict';
-const laptops = [
-  {
+const laptops = [{
     size: 13,
     color: 'white',
     price: 28000,
     release_date: 2015,
     name: 'Macbook Air White 13"',
     img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
-    descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.'
+    descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.'
   },
   {
     size: 13,
@@ -17,8 +15,7 @@ const laptops = [
     release_date: 2016,
     name: 'Macbook Air Gray 13"',
     img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
-    descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.'
+    descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.'
   },
   {
     size: 13,
@@ -27,8 +24,7 @@ const laptops = [
     release_date: 2017,
     name: 'Macbook Air Black 13"',
     img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
-    descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.'
+    descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.'
   },
   {
     size: 15,
@@ -37,8 +33,7 @@ const laptops = [
     release_date: 2015,
     name: 'Macbook Air White 15"',
     img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
-    descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.'
+    descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.'
   },
   {
     size: 15,
@@ -47,8 +42,7 @@ const laptops = [
     release_date: 2016,
     name: 'Macbook Pro Gray 15"',
     img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
-    descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.'
+    descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.'
   },
   {
     size: 15,
@@ -57,8 +51,7 @@ const laptops = [
     release_date: 2017,
     name: 'Macbook Pro Black 15"',
     img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
-    descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.'
+    descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.'
   },
   {
     size: 17,
@@ -67,8 +60,7 @@ const laptops = [
     release_date: 2015,
     name: 'Macbook Air White 17"',
     img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
-    descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.'
+    descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.'
   },
   {
     size: 17,
@@ -77,8 +69,7 @@ const laptops = [
     release_date: 2016,
     name: 'Macbook Pro Gray 17"',
     img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
-    descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.'
+    descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.'
   },
   {
     size: 17,
@@ -87,8 +78,7 @@ const laptops = [
     release_date: 2017,
     name: 'Macbook Pro Black 17"',
     img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
-    descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.'
+    descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.'
   }
 ];
 
@@ -117,10 +107,8 @@ function checkItem() {
     }
     return acc;
   }, {});
-  console.log(filter);
   galleryList.innerHTML = ' ';
   const newArr = filterGallery(filter, laptops);
-  console.log(newArr);
   if (newArr.length > 0) {
     render(newArr);
   }
@@ -137,7 +125,6 @@ function filterGallery(obj, arr) {
     }
     return acc;
   }, []);
-  console.log(result);
   return result;
 }
 
