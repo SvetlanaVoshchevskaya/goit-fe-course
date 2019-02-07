@@ -1,5 +1,4 @@
 'use strict';
-
 const laptops = [
   {
     size: 13,
@@ -93,25 +92,42 @@ const laptops = [
   }
 ];
 
-const form = document.querySelector('.js-form');
-const section = document.querySelectorAll('section');
-let filter = { size: [], color: [], release_date: [] };
+const form = document.querySelector('.form');
+const galleryList = document.querySelector('.gallery-list');
+const source = document.querySelector('#item').innerHTML.trim();
 
-const getCheck = function() {
+function render(template) {
+  const templ = Handlebars.compile(source);
+  const markup = templ(template);
+  galleryList.innerHTML = markup;
+}
+render(laptops);
+
+
+function checkItem() {
   event.preventDefault();
   const input = Array.from(
-    document.querySelectorAll('[type="checkbox"]:checked')
+    document.querySelectorAll('[type=checkbox]:checked')
   );
-  for (let el of input) {
-    filter[el.name].push(el.value);
+  const filter = input.reduce((acc, value) => {
+    if (acc.hasOwnProperty(value.name)) {
+      acc[value.name] = [value.value];
+    } else {
+      acc[value.name] = [value.value];
+    }
+    return acc;
+  }, {});
+  console.log(filter);
+  galleryList.innerHTML = ' ';
+  const newArr = filterGallery(filter, laptops);
+  console.log(newArr);
+  if (newArr.length > 0) {
+    render(newArr);
   }
-
-  return filter;
-};
+}
 
 function filterGallery(obj, arr) {
-  event.preventDefault();
-  let result = Object.keys(filter).reduce((acc, item) => {
+  let result = Object.keys(obj).reduce((acc, item) => {
     if (obj[item].length !== 0) {
       return arr.filter(el => obj[item].includes(String(el[item])));
     } else {
@@ -121,26 +137,8 @@ function filterGallery(obj, arr) {
     }
     return acc;
   }, []);
+  console.log(result);
   return result;
 }
 
-function render(obj) {
-  const gallery = document.querySelector('#item').innerHTML.trim();
-  const list = document.querySelector('.gallery-list');
-  const templ = Handlebars.compile(gallery);
-  const markup = templ({ obj });
-  list.innerHTML += markup;
-  console.log(obj);
-}
-
-function paintGallery() {
-  event.preventDefault();
-  let newArr = filterGallery(getCheck(), laptops);
-  render(newArr);
-}
-
-document.addEventListener('submit', paintGallery);
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   render(laptops);
-// });
+form.addEventListener('submit', checkItem);
