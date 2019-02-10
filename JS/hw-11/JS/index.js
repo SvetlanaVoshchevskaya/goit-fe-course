@@ -107,7 +107,7 @@ function checkItem() {
     }
     return acc;
   }, {});
-  galleryList.innerHTML = ' ';
+  galleryList.innerHTML = '';
   const newArr = filterGallery(filter, laptops);
   if (newArr.length > 0) {
     render(newArr);
