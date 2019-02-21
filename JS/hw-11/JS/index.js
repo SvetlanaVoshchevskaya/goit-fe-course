@@ -103,6 +103,7 @@ function render(template) {
 }
 render(laptops);
 
+
 function checkItem() {
   event.preventDefault();
   const input = Array.from(
