@@ -1,10 +1,11 @@
 .root {
     display: flex;
-    width: 100%;
+    max-width: 100%;
   }
-  .sidebar {width: 60%}
+  .sidebar {min-width:20%}
 
 .gallery-list {
+  
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
