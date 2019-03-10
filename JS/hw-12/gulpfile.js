@@ -20,6 +20,10 @@ const rename = require('gulp-rename');
 const server = require('browser-sync').create();
 const sequence = require('run-sequence');
 
+gulp.task('copylibs', () => {
+  return gulp.src('./node_modules/handlebars/dist/handlebars.js')
+    .pipe(gulp.dest('./build/libs'));
+});
 
 gulp.task('html', () => {
   return gulp
@@ -39,7 +43,10 @@ gulp.task('styles', () => {
     .pipe(plumber())
     .pipe(
       stylelint({
-        reporters: [{ formatter: 'string', console: true }]
+        reporters: [{
+          formatter: 'string',
+          console: true
+        }]
       })
     )
     .pipe(sass())
@@ -71,7 +78,9 @@ gulp.task('scripts', () => {
 gulp.task('sprite', () => {
   return gulp
     .src('./src/images/icons/icon-*.svg')
-    .pipe(svgstore({ inlineSvg: true }))
+    .pipe(svgstore({
+      inlineSvg: true
+    }))
     .pipe(rename('sprite.svg'))
     .pipe(gulp.dest('./build/images'));
 });
@@ -81,10 +90,18 @@ gulp.task('images', () => {
     .src(['./src/images/**/*.{png,jpg,jpeg,svg}', '!./src/images/icons/**/*'])
     .pipe(
       imagemin([
-        imagemin.jpegtran({ progressive: true }),
-        imagemin.optipng({ optimizationLevel: 3 }),
+        imagemin.jpegtran({
+          progressive: true
+        }),
+        imagemin.optipng({
+          optimizationLevel: 3
+        }),
         imagemin.svgo({
-          plugins: [{ removeViewBox: false }, { cleanupIDs: false }]
+          plugins: [{
+            removeViewBox: false
+          }, {
+            cleanupIDs: false
+          }]
         })
       ])
     )
@@ -121,9 +138,9 @@ gulp.task('prepare', () => del(['**/.gitkeep', 'README.md', 'banner.png']));
 gulp.task('build', callback =>
   sequence(
     'del:build',
-    ['sprite', 'images', 'fonts', 'styles', 'html', 'scripts'],
+    ['copylibs','sprite', 'images', 'fonts', 'styles', 'html', 'scripts'],
     callback
   )
 );
 
-gulp.task('start', callback => sequence('build', 'serve', 'watch', callback));
+gulp.task('start', callback => sequence('copylibs','build', 'serve', 'watch', callback));
