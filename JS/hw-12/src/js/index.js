@@ -7,13 +7,21 @@ const content = document.querySelector(".content");
 
 function getValue() {
   event.preventDefault();
-  const text = input.value;
-  let obj = {
+  let text = input.value;
+  let objtoarray = {
     id: Date.now(),
     content: text
   };
-  createForm(obj);
-  saveToStorage(obj);
+  if (arrayToStorage.length === 0) {
+    saveToStorage(objtoarray);
+  } else if (arrayToStorage.length > 0) {
+    const check = checkElement(text);
+       if (!check) {
+      saveToStorage(objtoarray);
+    } else {
+      return;
+    }
+  }
   input.value = '';
 }
 
@@ -28,7 +36,14 @@ function createForm(item) {
   const markup = source(item);
   content.insertAdjacentHTML("afterbegin", markup);
 }
-
+function checkElement(text) {
+  arrayToStorage.forEach(item => {console.log(item.content === text)
+    if (item.content === text) {
+      alert('Exist');
+      return;
+    }
+  });
+}
 function painFromStorage() {
   let result = JSON.parse(localStorage.getItem('marks'))
   if (result) {
