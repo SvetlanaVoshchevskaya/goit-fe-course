@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
-const template = document.querySelector("#js-card-template").innerHTML.trim();
-const input = document.querySelector(".link-input");
-const form = document.querySelector(".js-forms");
-const content = document.querySelector(".content");
+const template = document.querySelector('#js-card-template').innerHTML.trim();
+const input = document.querySelector('.link-input');
+const form = document.querySelector('.js-forms');
+const content = document.querySelector('.content');
 
 let arrayToStorage = JSON.parse(localStorage.getItem('marks')) || [];
 
@@ -21,6 +21,7 @@ function getValue() {
        if (!check) {
       saveToStorage(objtoarray);
     } else {
+      input.value = '';
       return;
     }
   }
@@ -36,16 +37,21 @@ function saveToStorage(obj) {
 function createForm(item) {
   const source = Handlebars.compile(template);
   const markup = source(item);
-  content.insertAdjacentHTML("afterbegin", markup);
+  content.insertAdjacentHTML('afterbegin', markup);
 }
+
 function checkElement(text) {
-  arrayToStorage.forEach(item => {console.log(item.content === text)
+  const result= arrayToStorage.some(item => {
     if (item.content === text) {
-      alert('Exist');
-      return;
+      alert('bookmark already exist');
+      return true;
+    } else {
+      return false;
     }
   });
+  return result
 }
+
 function painFromStorage() {
   if (arrayToStorage) {
     for (let el of arrayToStorage) {
@@ -62,11 +68,10 @@ function deleteBookmarks(event) {
   if (deleteBtn.nodeName === 'BUTTON') {
     deleteBtn.parentNode.remove();
   }
- 
   let newArr = arrayToStorage.filter(el => el.id !== Number(id));
   localStorage.setItem('marks', JSON.stringify(newArr));
 }
 
-window.addEventListener('DOMContentLoaded',painFromStorage)
-form.addEventListener("submit", getValue);
-content.addEventListener("click", deleteBookmarks);
+window.addEventListener('DOMContentLoaded', painFromStorage);
+form.addEventListener('submit', getValue);
+content.addEventListener('click', deleteBookmarks);

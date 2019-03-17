@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
-var template = document.querySelector("#js-card-template").innerHTML.trim();
-var input = document.querySelector(".link-input");
-var form = document.querySelector(".js-forms");
-var content = document.querySelector(".content");
+var template = document.querySelector('#js-card-template').innerHTML.trim();
+var input = document.querySelector('.link-input');
+var form = document.querySelector('.js-forms');
+var content = document.querySelector('.content');
 var arrayToStorage = JSON.parse(localStorage.getItem('marks')) || [];
 
 function getValue() {
@@ -22,6 +22,7 @@ function getValue() {
     if (!check) {
       saveToStorage(objtoarray);
     } else {
+      input.value = '';
       return;
     }
   }
@@ -38,18 +39,19 @@ function saveToStorage(obj) {
 function createForm(item) {
   var source = Handlebars.compile(template);
   var markup = source(item);
-  content.insertAdjacentHTML("afterbegin", markup);
+  content.insertAdjacentHTML('afterbegin', markup);
 }
 
 function checkElement(text) {
-  arrayToStorage.forEach(function (item) {
-    console.log(item.content === text);
-
+  var result = arrayToStorage.some(function (item) {
     if (item.content === text) {
-      alert('Exist');
-      return;
+      alert('bookmark already exist');
+      return true;
+    } else {
+      return false;
     }
   });
+  return result;
 }
 
 function painFromStorage() {
@@ -97,5 +99,5 @@ function deleteBookmarks(event) {
 }
 
 window.addEventListener('DOMContentLoaded', painFromStorage);
-form.addEventListener("submit", getValue);
-content.addEventListener("click", deleteBookmarks);
+form.addEventListener('submit', getValue);
+content.addEventListener('click', deleteBookmarks);
