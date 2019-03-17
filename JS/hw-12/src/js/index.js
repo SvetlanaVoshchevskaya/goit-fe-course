@@ -5,6 +5,8 @@ const input = document.querySelector(".link-input");
 const form = document.querySelector(".js-forms");
 const content = document.querySelector(".content");
 
+let arrayToStorage = JSON.parse(localStorage.getItem('marks')) || [];
+
 function getValue() {
   event.preventDefault();
   let text = input.value;
@@ -26,10 +28,10 @@ function getValue() {
 }
 
 function saveToStorage(obj) {
-  let arrayToStorage = JSON.parse(localStorage.getItem('marks'));
   arrayToStorage.push(obj);
+  createForm(obj);
   localStorage.setItem('marks', JSON.stringify(arrayToStorage));
- }
+}
 
 function createForm(item) {
   const source = Handlebars.compile(template);
@@ -45,25 +47,24 @@ function checkElement(text) {
   });
 }
 function painFromStorage() {
-  let result = JSON.parse(localStorage.getItem('marks'))
-  if (result) {
-    for (let el of result) {
+  if (arrayToStorage) {
+    for (let el of arrayToStorage) {
       createForm(el);
     }
-      }
-      else {localStorage.setItem('marks',JSON.stringify([]))}
+  } else {
+    localStorage.setItem('marks', JSON.stringify([]));
+  }
 }
 
 function deleteBookmarks(event) {
   let deleteBtn = event.target;
   let id = deleteBtn.parentNode.dataset.id;
-  if (deleteBtn.nodeName === "BUTTON") {
+  if (deleteBtn.nodeName === 'BUTTON') {
     deleteBtn.parentNode.remove();
   }
-  let result = JSON.parse(localStorage.getItem('marks'));
-  let newArr = result.filter(el => el.id !== Number(id));
+ 
+  let newArr = arrayToStorage.filter(el => el.id !== Number(id));
   localStorage.setItem('marks', JSON.stringify(newArr));
-
 }
 
 window.addEventListener('DOMContentLoaded',painFromStorage)

@@ -4,22 +4,34 @@ var template = document.querySelector("#js-card-template").innerHTML.trim();
 var input = document.querySelector(".link-input");
 var form = document.querySelector(".js-forms");
 var content = document.querySelector(".content");
+var arrayToStorage = JSON.parse(localStorage.getItem('marks')) || [];
 
 function getValue() {
   event.preventDefault();
   var text = input.value;
-  var obj = {
+  var objtoarray = {
     id: Date.now(),
     content: text
   };
-  createForm(obj);
-  saveToStorage(obj);
+
+  if (arrayToStorage.length === 0) {
+    saveToStorage(objtoarray);
+  } else if (arrayToStorage.length > 0) {
+    var check = checkElement(text);
+
+    if (!check) {
+      saveToStorage(objtoarray);
+    } else {
+      return;
+    }
+  }
+
   input.value = '';
 }
 
 function saveToStorage(obj) {
-  var arrayToStorage = JSON.parse(localStorage.getItem('marks'));
   arrayToStorage.push(obj);
+  createForm(obj);
   localStorage.setItem('marks', JSON.stringify(arrayToStorage));
 }
 
@@ -29,16 +41,25 @@ function createForm(item) {
   content.insertAdjacentHTML("afterbegin", markup);
 }
 
-function painFromStorage() {
-  var result = JSON.parse(localStorage.getItem('marks'));
+function checkElement(text) {
+  arrayToStorage.forEach(function (item) {
+    console.log(item.content === text);
 
-  if (result) {
+    if (item.content === text) {
+      alert('Exist');
+      return;
+    }
+  });
+}
+
+function painFromStorage() {
+  if (arrayToStorage) {
     var _iteratorNormalCompletion = true;
     var _didIteratorError = false;
     var _iteratorError = undefined;
 
     try {
-      for (var _iterator = result[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      for (var _iterator = arrayToStorage[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
         var el = _step.value;
         createForm(el);
       }
@@ -65,12 +86,11 @@ function deleteBookmarks(event) {
   var deleteBtn = event.target;
   var id = deleteBtn.parentNode.dataset.id;
 
-  if (deleteBtn.nodeName === "BUTTON") {
+  if (deleteBtn.nodeName === 'BUTTON') {
     deleteBtn.parentNode.remove();
   }
 
-  var result = JSON.parse(localStorage.getItem('marks'));
-  var newArr = result.filter(function (el) {
+  var newArr = arrayToStorage.filter(function (el) {
     return el.id !== Number(id);
   });
   localStorage.setItem('marks', JSON.stringify(newArr));
