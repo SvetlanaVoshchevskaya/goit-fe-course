@@ -14,8 +14,8 @@ export default class Model {
             content: text,
         };
         this.items.push(item);
-      
-       return fetchData(item).then(data => console.log(data))
+        localStorage.setItem('bookmark', JSON.stringify(this.items));
+        return fetchData(item)
     }
 
     deleteItem(id) {
