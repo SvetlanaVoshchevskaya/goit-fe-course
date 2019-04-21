@@ -1,0 +1,28 @@
+form {
+    padding: 20px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    flex-wrap: wrap;
+}
+
+.bookmarks {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px;
+    border: 2px solid grey;
+}
+
+a {
+    padding: 5px
+}
+
+.delete {
+
+    padding: 8px;
+    margin: 5px
+}
