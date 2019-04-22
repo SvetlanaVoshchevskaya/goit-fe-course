@@ -7,7 +7,7 @@ export default class Controller {
     view.on('delete', this.deleteBookmarks.bind(this));
     view.on('loaded', this.drawingFromStorage.bind(this));
   }
-  //drawingFromStorage() {
+  drawingFromStorage() {
     // this.model.itemFromStorage()
     // .then(data => this.view.createItem(data))
 
