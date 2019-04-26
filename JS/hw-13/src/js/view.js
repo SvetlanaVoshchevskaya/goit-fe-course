@@ -1,5 +1,5 @@
 import Event from './event-emitter';
-// import template from '../tamplate/tamplate.hbs';
+
 export default class View extends Event {
   constructor() {
     super();
@@ -32,20 +32,24 @@ export default class View extends Event {
     const markup = template(obj);
     console.log(obj)
     this.content.insertAdjacentHTML('afterbegin', markup);
-    // this.content.addEventListener('click', this.handleRemove.bind(this));
+    this.content.addEventListener('click', this.handleRemove.bind(this));
   }
 
-  handleRemove(event) {
+  handleRemove() {
+    // const parent = target.closest('.bookmarks')
     if (event.target.textContent === 'Delete') {
       const button = event.target;
       const card = button.parentNode;
       this.emit('delete', card.dataset.id);
+      console.log(parent)
     }
+
   }
 
   removeItem(id) {
-    const card = document.querySelector(`[data-id="${id}"]`);
-    card.remove();
+    const card = this.content.querySelector(`[data-id="${id}"]`);
+    console.log(id)
+   card.remove()
   }
 }
 
