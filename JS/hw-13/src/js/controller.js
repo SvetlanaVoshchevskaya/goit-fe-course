@@ -2,25 +2,30 @@ export default class Controller {
   constructor(model, view) {
     this.model = model;
     this.view = view;
+    this.arrayToStorage = JSON.parse(localStorage.getItem('bookmark')) || [];
 
-    view.on('add', this.createBookmarks.bind(this));
-    view.on('delete', this.deleteBookmarks.bind(this));
-    view.on('loaded', this.drawingFromStorage.bind(this));
+    view.on('add', (text) => this.createBookmarks(text));
+    view.on('delete', () => this.deleteBookmarks());
+    view.on('loaded', () => this.drawingFromStorage());
   }
   drawingFromStorage() {
-    // this.model.itemFromStorage()
-    // .then(data => this.view.createItem(data))
+    if (this.arrayToStorage) {
+      this.arrayToStorage.forEach(item => this.view.createItem(item))
+    }
 
   }
+
   createBookmarks(text) {
-   this.model.addItem(text)
-   .then(data=>this.view.createItem(data))
-
+    this.model.addItem(text)
+      .then(data => {
+        console.log(data)
+        this.view.createItem(data)
+      })
   }
-  deleteBookmarks(id) {
-    console.log(id)
-    this.model.deleteItem(id);
-    this.view.removeItem(id);
+
+  deleteBookmarks(index) {
+    this.model.deleteItem(index);
+    this.view.removeItem();
   }
 }
 
