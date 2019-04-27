@@ -5,7 +5,7 @@ export default class Controller {
     this.arrayToStorage = JSON.parse(localStorage.getItem('bookmark')) || [];
 
     view.on('add', (text) => this.createBookmarks(text));
-    view.on('delete', () => this.deleteBookmarks());
+    view.on('delete', (id) => this.deleteBookmarks(id));
     view.on('loaded', () => this.drawingFromStorage());
   }
   drawingFromStorage() {
@@ -18,14 +18,14 @@ export default class Controller {
   createBookmarks(text) {
     this.model.addItem(text)
       .then(data => {
-        console.log(data)
+        // console.log(data)
         this.view.createItem(data)
       })
   }
 
-  deleteBookmarks(index) {
-    this.model.deleteItem(index);
+  deleteBookmarks(id) {
     this.view.removeItem();
+    this.model.deleteItem(id);
   }
 }
 

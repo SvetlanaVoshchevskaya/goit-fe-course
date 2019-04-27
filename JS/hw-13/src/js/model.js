@@ -4,7 +4,6 @@ import v4 from 'uuid/v4';
 export default class Model {
     constructor(items) {
         this.items = items || [];
-        // this.selectedIndex = -1
 
     }
 
@@ -21,9 +20,9 @@ export default class Model {
 
     deleteItem(id) {
         let arrayToStorage = JSON.parse(localStorage.getItem('bookmark'))
-        // const newArr = arrayToStorage.splice(index, 1);
-        const newArr = arrayToStorage.filter(el => el.id !== Number(id));
-        console.log(id)
+        const newArr = arrayToStorage.filter(el =>el.id !== id
+        );
+        console.log(arrayToStorage)
         localStorage.setItem('bookmark', JSON.stringify(newArr));
     }
 

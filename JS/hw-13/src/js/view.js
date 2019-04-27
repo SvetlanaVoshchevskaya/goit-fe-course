@@ -9,10 +9,10 @@ export default class View extends Event {
     this.input = document.querySelector('.link-input');
     this.content = document.querySelector('.content');
     this.dataFromStorage = JSON.parse(localStorage.getItem('bookmark')) || [];
-    this.form.addEventListener('submit', this.getValue.bind(this));
+    this.form.addEventListener('submit', (event) => this.getValue(event));
     window.addEventListener(
-      'DOMContentLoaded', this.drawingItemFromStorage.bind(this)
-    );
+      'DOMContentLoaded', () => this.drawingItemFromStorage())
+
   }
 
   drawingItemFromStorage() {
@@ -32,24 +32,19 @@ export default class View extends Event {
     const markup = template(obj);
     console.log(obj)
     this.content.insertAdjacentHTML('afterbegin', markup);
-    this.content.addEventListener('click', this.handleRemove.bind(this));
+    this.content.addEventListener('click', ({ target }) => this.handleRemove({ target }));
   }
 
-  handleRemove() {
-    // const parent = target.closest('.bookmarks')
-    if (event.target.textContent === 'Delete') {
-      const button = event.target;
-      const card = button.parentNode;
-      this.emit('delete', card.dataset.id);
-      console.log(parent)
-    }
-
+  handleRemove({ target }) {
+    const button = target.closest('.bookmarks');
+    console.log(button)
+    this.emit('delete', button.dataset.id);
   }
 
-  removeItem(id) {
-    const card = this.content.querySelector(`[data-id="${id}"]`);
-    console.log(id)
-   card.remove()
+  removeItem() {
+    const idBookmark = event.target.parentNode;
+    const card = document.querySelector(`[data-id="${idBookmark.dataset.id}"]`);
+    card.remove()
   }
 }
 
