@@ -17,7 +17,6 @@ export default class View extends Event {
 
   drawingItemFromStorage() {
     this.emit('loaded', this.dataFromStorage);
-    console.log(this.dataFromStorage)
   }
 
   getValue(event) {
@@ -30,21 +29,19 @@ export default class View extends Event {
   createItem(obj) {
     const template = Handlebars.compile(this.source);
     const markup = template(obj);
-    console.log(obj)
     this.content.insertAdjacentHTML('afterbegin', markup);
     this.content.addEventListener('click', ({ target }) => this.handleRemove({ target }));
   }
 
   handleRemove({ target }) {
-    const button = target.closest('.bookmarks');
-    console.log(button)
-    this.emit('delete', button.dataset.id);
+    const card = target.closest('.bookmarks');
+    this.emit('delete', card.dataset.id);
   }
 
-  removeItem() {
-    const idBookmark = event.target.parentNode;
-    const card = document.querySelector(`[data-id="${idBookmark.dataset.id}"]`);
+  removeItem(id) {
+    const card = document.querySelector(`[data-id="${id}"]`);
     card.remove()
+
   }
 }
 

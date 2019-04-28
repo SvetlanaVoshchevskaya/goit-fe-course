@@ -18,14 +18,14 @@ export default class Controller {
   createBookmarks(text) {
     this.model.addItem(text)
       .then(data => {
-        // console.log(data)
         this.view.createItem(data)
       })
   }
 
   deleteBookmarks(id) {
-    this.view.removeItem();
     this.model.deleteItem(id);
+    this.view.removeItem(id);
+    
   }
 }
 

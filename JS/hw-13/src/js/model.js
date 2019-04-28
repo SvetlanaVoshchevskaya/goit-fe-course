@@ -1,6 +1,8 @@
 
 import fetchData from './api';
 import v4 from 'uuid/v4';
+import  validate from './validate';
+
 export default class Model {
     constructor(items) {
         this.items = items || [];
@@ -16,13 +18,10 @@ export default class Model {
         });
         return item
     }
-
-
     deleteItem(id) {
         let arrayToStorage = JSON.parse(localStorage.getItem('bookmark'))
-        const newArr = arrayToStorage.filter(el =>el.id !== id
+        const newArr = arrayToStorage.filter(el => el.id !== id
         );
-        console.log(arrayToStorage)
         localStorage.setItem('bookmark', JSON.stringify(newArr));
     }
 
