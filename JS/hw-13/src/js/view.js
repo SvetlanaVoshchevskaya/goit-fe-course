@@ -5,7 +5,6 @@ export default class View extends Event {
     super();
     this.form = document.querySelector('.js-forms');
     this.source = document.querySelector('#js-card-template').innerHTML.trim();
-    // this.delBtn = document.querySelector('.delete');
     this.input = document.querySelector('.link-input');
     this.content = document.querySelector('.content');
     this.dataFromStorage = JSON.parse(localStorage.getItem('bookmark')) || [];
@@ -21,6 +20,7 @@ export default class View extends Event {
 
   getValue(event) {
     event.preventDefault();
+
     let text = this.input.value;
     this.emit('add', text);
     this.input.value = '';
@@ -40,8 +40,7 @@ export default class View extends Event {
 
   removeItem(id) {
     const card = document.querySelector(`[data-id="${id}"]`);
-    card.remove()
-
+    if (card) { card.remove() }
   }
 }
 

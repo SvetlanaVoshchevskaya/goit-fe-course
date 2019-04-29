@@ -25,7 +25,7 @@ export default class Controller {
   deleteBookmarks(id) {
     this.model.deleteItem(id);
     this.view.removeItem(id);
-    
+
   }
 }
 
