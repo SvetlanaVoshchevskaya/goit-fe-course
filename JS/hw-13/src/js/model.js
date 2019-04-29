@@ -10,11 +10,11 @@ export default class Model {
     }
 
     addItem(text) {
-        const item = fetchData(text);
-        if (this.arrayToStorage.length === 0) {
+        let item = fetchData(text);
+        if (this.items.length === 0) {
             item.then(data => this.addtoStorage(data))
         }
-        else if (this.arrayToStorage.length > 0) {
+        else if (this.items.length > 0) {
             if (!this.validText(text)) {
                 item.then(data => this.addtoStorage(data))
             }
@@ -27,7 +27,7 @@ export default class Model {
     }
 
     validText(text) {
-        return this.arrayToStorage.some(item => item.url === text);
+        return this.items.some(item => item.url === text);
     }
 
     addtoStorage(data) {
