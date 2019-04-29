@@ -11,7 +11,6 @@ export default class View extends Event {
     this.form.addEventListener('submit', (event) => this.getValue(event));
     window.addEventListener(
       'DOMContentLoaded', () => this.drawingItemFromStorage())
-
   }
 
   drawingItemFromStorage() {
